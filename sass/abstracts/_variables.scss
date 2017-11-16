@@ -1,0 +1,22 @@
+$spotify-color-key: 'base' !default;
+
+$spotify-colors: (
+  'primary':(
+      'base':rgb(7,209,89),
+      'light':rgb(29,185,84),
+      'lighter':rgb(38,207,95),
+  ),
+  'foreground':(
+      'base':rgb(0, 0, 0)
+  ),
+  'secondary':(
+      'base':rgb(255,255,255)
+  )
+);
+
+$spotify-opacity: (
+  'light': 0.8, 
+  'lighter': 0.6, 
+  'dark': 0.4,  
+  'darker': 0.2,  
+);

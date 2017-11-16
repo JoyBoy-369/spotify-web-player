@@ -1,0 +1,50 @@
+#root .landing-page{
+    display:flex;
+    align-items: center;
+    background-image:  linear-gradient(to right bottom,
+    spotify-color('foreground', $opacity: 'darker'),
+    spotify-color('foreground', $opacity: 'darker')),
+    url("../../images/bg.jpg");
+    background-size:cover;
+    height:100vh;
+
+}
+
+#root .left-container{
+    border-right: .1rem solid spotify-color('secondary',$opacity:'lighter');
+    padding-right: 5rem;
+
+    &__logo-box{
+        margin-bottom:3rem;
+    }
+
+    &__logo{
+        width:20rem;
+    }
+
+}
+
+#root .right-container{
+    padding-left: 5rem;
+
+    &__header-box{
+        margin-bottom:1rem;
+    }
+}
+
+#root .seperator-container{
+
+    margin: 1rem 0;
+
+    &__seperator-line{
+    @include size(2.5rem,.1rem);
+    background-color: spotify-color('secondary',$opacity:'lighter');
+    }
+
+    &__seperator-text{
+        color:spotify-color('secondary',$opacity:'lighter');
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        letter-spacing: .1rem;
+    }
+}

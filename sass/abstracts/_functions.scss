@@ -1,0 +1,21 @@
+@function spotify-color(
+  $name: 'primary',
+  $variant: $spotify-color-key,
+  $opacity: 1
+) {
+  $color: null;
+  
+  $color-spectrum: map-get($spotify-colors, $name);
+  
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+  
+  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($spotify-opacity, $opacity));
+  
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+  
+  @return $color;
+}
