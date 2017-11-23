@@ -7,9 +7,11 @@
 @import "base/typography";
 @import "base/utilities";
 
-//layouts
-
+@import "layouts/top-container";
+@import "layouts/nav-container";
 
 @import "components/button";
+@import "components/search-box";
 
 @import "pages/landing-page";
+@import "pages/home-page";

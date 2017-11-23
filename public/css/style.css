@@ -40,15 +40,31 @@ body {
 .u-padding-none {
   padding: 0 !important; }
 
+#root .top-container {
+  height: 85vh; }
+
+#root .nav-container {
+  padding: 2.4rem; }
+  #root .nav-container__item {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.02rem; }
+    #root .nav-container__item--active {
+      color: #1db954; }
+    #root .nav-container__item:first-of-type {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+
 #root .btn {
   display: inline-block;
-  padding: 1.5rem 4rem;
+  padding: 1.3rem 4rem;
   font-size: 1.8rem;
   font-weight: 700;
   border-radius: 50rem;
   text-transform: uppercase;
   border: none;
-  letter-spacing: .3rem;
+  letter-spacing: 0.3rem;
   width: 100%;
   outline: none;
   cursor: pointer; }
@@ -60,7 +76,8 @@ body {
 #root .landing-page {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../images/bg.jpg");
+  background-position: 50% 45%;
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../images/bg.jpg");
   background-size: cover;
   height: 100vh; }
 
@@ -75,6 +92,7 @@ body {
 #root .right-container {
   padding-left: 5rem; }
   #root .right-container__header-box {
+    margin-top: 3rem;
     margin-bottom: 1rem; }
 
 #root .seperator-container {
@@ -87,4 +105,8 @@ body {
     color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
     font-size: 1.4rem;
-    letter-spacing: .1rem; }
+    letter-spacing: 0.1rem; }
+
+.home-container {
+  background-image: linear-gradient(#304269, #04060a 85%);
+  height: 100vh; }

@@ -1,21 +1,44 @@
 @function spotify-color(
-  $name: 'primary',
+  $name: "primary",
   $variant: $spotify-color-key,
   $opacity: 1
 ) {
   $color: null;
-  
+
   $color-spectrum: map-get($spotify-colors, $name);
-  
+
   @if $color-spectrum {
     $color: map-get($color-spectrum, $variant);
   }
-  
-  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($spotify-opacity, $opacity));
-  
+
+  $alpha: if(
+    type-of($opacity) == "number",
+    $opacity,
+    map-get($spotify-opacity, $opacity)
+  );
+
   @if $alpha {
     $color: rgba($color, $alpha);
   }
-  
+
+  @return $color;
+}
+
+@function black-shade(
+  $name: "base",
+  $opacity: 1
+) {
+  $color: map-get($black-shades, $name);
+
+  $alpha: if(
+    type-of($opacity) == "number",
+    $opacity,
+    map-get($spotify-opacity, $opacity)
+  );
+
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
   @return $color;
 }

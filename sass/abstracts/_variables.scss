@@ -1,22 +1,33 @@
-$spotify-color-key: 'base' !default;
+$spotify-color-key: "base" !default;
+$black-shade-key: "base" !default;
+
+$black-shades: (
+  "base":rgb(0, 0, 0),
+  "darker":rgb(3, 6, 11),
+  "dark":rgb(4, 6, 10),
+  "light":rgb(5, 7, 10),
+  "lighter":rgb(7, 7, 7),
+  "lightest":rgb(10, 8, 4)
+);
 
 $spotify-colors: (
-  'primary':(
-      'base':rgb(7,209,89),
-      'light':rgb(29,185,84),
-      'lighter':rgb(38,207,95),
-  ),
-  'foreground':(
-      'base':rgb(0, 0, 0)
-  ),
-  'secondary':(
-      'base':rgb(255,255,255)
-  )
+  "primary":(
+      "base":rgb(7, 209, 89),
+      "light":rgb(29, 185, 84),
+      "lighter":rgb(38, 207, 95)
+    ),
+  "foreground":("base":rgb(0, 0, 0)),
+  "secondary":("base":rgb(255, 255, 255)),
+  "background":(
+      "base":rgb(48, 66, 105),
+      "light":rgb(51, 76, 101),
+      "dark":rgb(30, 51, 100)
+    )
 );
 
 $spotify-opacity: (
-  'light': 0.8, 
-  'lighter': 0.6, 
-  'dark': 0.4,  
-  'darker': 0.2,  
+  "light": 0.8,
+  "lighter": 0.6,
+  "dark": 0.4,
+  "darker": 0.2
 );
