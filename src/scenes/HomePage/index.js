@@ -3,11 +3,10 @@ import Sidebar from "./components/Sidebar";
 
 import ContentContainer from "./components/ContentContainer";
 
-class TopContainer extends Component {
+class HomePage extends Component {
   render() {
-    const matchPath = this.props.match.path;
     return (
-      <div className="ui padded grid">
+      <div className="ui padded grid home-container ">
         <Sidebar {...this.props} />
         <ContentContainer {...this.props} />
       </div>
@@ -15,4 +14,4 @@ class TopContainer extends Component {
   }
 }
 
-export default TopContainer;
+export default HomePage;

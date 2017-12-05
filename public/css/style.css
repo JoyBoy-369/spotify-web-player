@@ -44,17 +44,19 @@ body {
   height: 85vh; }
 
 #root .nav-container {
-  padding: 2.4rem; }
+  padding: 2.4rem;
+  background-color: rgba(0, 0, 0, 0.5); }
   #root .nav-container__item {
     color: rgba(255, 255, 255, 0.6);
     font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: 0.02rem; }
-    #root .nav-container__item--active {
-      color: #1db954; }
     #root .nav-container__item:first-of-type {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+
+#root .nav-item--active {
+  color: #1db954; }
 
 #root .btn {
   display: inline-block;

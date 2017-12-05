@@ -1,0 +1,5 @@
+#root .nav-item {
+  &--active {
+    color: spotify-color("primary", "light");
+  }
+}

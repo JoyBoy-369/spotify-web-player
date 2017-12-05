@@ -1,15 +1,12 @@
 #root .nav-container {
   padding: 2.4rem;
+  background-color: spotify-color("foreground", "base", $opacity:"medium");
 
   &__item {
     color: spotify-color("secondary", $opacity:"lighter");
     font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: 0.02rem;
-
-    &--active {
-      color: spotify-color("primary", "light");
-    }
 
     &:first-of-type {
       border-top: 1px solid spotify-color("secondary", $opacity:"darker");
