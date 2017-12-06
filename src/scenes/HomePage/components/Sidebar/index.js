@@ -5,7 +5,7 @@ import NavItems from "../NavItems";
 const navItems = new Map();
 navItems.set("search", "Search");
 navItems.set("browse", "Home");
-navItems.set("collections", "Your Music");
+navItems.set("collection", "Your Music");
 
 class Sidebar extends Component {
   render() {
@@ -15,7 +15,12 @@ class Sidebar extends Component {
           <SVGLoader width={30} height={30} />
         </div>
         {Array.from(navItems.entries()).map(([key, value]) => (
-          <NavItems style="nav-container__item" key={key} item={key}>
+          <NavItems
+            style="nav-container__item"
+            activeStyle="nav-container__item--active"
+            key={key}
+            item={key}
+          >
             {value}
           </NavItems>
         ))}

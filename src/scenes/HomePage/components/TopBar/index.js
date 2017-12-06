@@ -4,15 +4,18 @@ import NavItems from "../NavItems";
 
 class TopBar extends Component {
   render() {
-    const { links } = this.props;
+    const { links, match } = this.props;
+
     return (
-      <div className="ui horizontal list ">
+      <div className="ui relaxed horizontal list ">
         {Array.from(links).map(([key, value]) => {
-          <div className="item">
-            <NavItems key={key} item={key}>
-              {value}
-            </NavItems>
-          </div>;
+          return (
+            <div className="item" key={key}>
+              <NavItems item={key} path={match.path}>
+                {value}
+              </NavItems>
+            </div>
+          );
         })}
       </div>
     );

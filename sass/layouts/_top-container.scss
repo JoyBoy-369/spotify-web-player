@@ -1,3 +1,10 @@
 #root .top-container {
   height: 85vh;
+
+  &__browse-container {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 3rem;
+  }
 }
