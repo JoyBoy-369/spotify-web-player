@@ -86,11 +86,28 @@ body {
   letter-spacing: 0.3rem;
   width: 100%;
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: all 0.3s; }
 
 #root .btn--green {
   color: white;
   background-color: #07d159; }
+
+#root .btn--transparent {
+  font-size: 1.1rem;
+  font-weight: 200;
+  color: #1db954; }
+  #root .btn--transparent:hover {
+    transform: scale(1.1); }
+
+#root .album {
+  margin-right: 2rem;
+  margin-bottom: 5rem;
+  width: 20rem;
+  height: 20rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
 
 #root .landing-page {
   display: flex;

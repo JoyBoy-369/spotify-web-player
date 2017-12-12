@@ -1,27 +1,46 @@
 import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 
-import { ClientApi } from "src/services";
+import { service as ClientApi } from "src/services";
 import Album from "../Album";
 
 class AlbumsContainer extends Component {
-  componentWillMount() {
-    this.getAlbums();
-  }
+  state = {
+    showAll: false
+  };
 
-  getAlbums = () => {
-    ClientApi.getAlbums("23O4F21GDWiGd33tFN3ZgI").then(albums =>
-      this.setState({
-        fetched: true,
-        albums: albums
-      })
-    );
+  clickHandle = evt => {
+    this.setState({
+      showAll: true
+    });
   };
 
   render() {
+    const { albums } = this.props,
+      { showAll } = this.state;
+
+    let slicedMedias = [];
+    slicedMedias = albums.slice(0, 8);
+
     return (
-      <div className="ui center aligned segment">
-        <Album />
+      <div className="ui grid">
+        <div className="doubling four column row">
+          {slicedMedias.map(media => {
+            return <Album key={media.id} album={media} />;
+          })}
+        </div>
+        <Route
+          render={({ history, match }) => (
+            <div
+              className="centered two wide column btn btn--transparent u-padding-none"
+              onClick={() => {
+                history.push(`/view${match.url}`, { albums });
+              }}
+            >
+              View More
+            </div>
+          )}
+        />
       </div>
     );
   }

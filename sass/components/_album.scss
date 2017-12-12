@@ -1,0 +1,8 @@
+#root .album {
+  margin-right: 2rem;
+  margin-bottom: 5rem;
+  @include size(20rem);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -1,4 +1,4 @@
-import ClientApi from "./api.js";
-import Helper from "./api.js";
+import { service } from "./api";
+import { helper } from "./helper";
 
-export { ClientApi, Helper };
+export { service, helper };

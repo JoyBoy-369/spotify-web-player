@@ -14,6 +14,7 @@ $border-radius: 50rem;
   width: 100%;
   outline: none;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 #root .btn {
@@ -22,5 +23,15 @@ $border-radius: 50rem;
   &--green {
     color: spotify-color("secondary");
     background-color: spotify-color("primary");
+  }
+
+  &--transparent {
+    font-size: 1.1rem;
+    font-weight: 200;
+    color: spotify-color("primary", "light");
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
