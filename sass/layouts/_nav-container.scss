@@ -1,5 +1,7 @@
 #root .nav-container {
   padding: 2.4rem;
+  height: 100%;
+  width: 22rem;
   background-color: spotify-color("foreground", "base", $opacity:"medium");
 
   &__item {

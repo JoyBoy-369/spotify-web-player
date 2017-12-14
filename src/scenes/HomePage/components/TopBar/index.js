@@ -7,7 +7,7 @@ class TopBar extends Component {
     const { links, match } = this.props;
 
     return (
-      <div className="ui relaxed horizontal list ">
+      <div className="ui relaxed horizontal list u-margin-small">
         {Array.from(links).map(([key, value]) => {
           return (
             <div className="item" key={key}>

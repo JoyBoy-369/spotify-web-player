@@ -68,7 +68,9 @@ class LandingPage extends Component {
       <div className="ui aligned padded grid">
         <div className="left aligned row right-container__header-box">
           <div className="column">
-            <h1 className="main-header">Get the right music, right now</h1>
+            <h1 className="main-header-landing">
+              Get the right music, right now
+            </h1>
             <h2 className="secondary-header">
               Listen to million of songs for free
             </h2>

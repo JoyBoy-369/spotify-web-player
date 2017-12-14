@@ -12,15 +12,21 @@ body {
   box-sizing: border-box; }
 
 body {
-  font-family: "Lato",sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7; }
 
 #root .main-header {
-  color: #1db954;
-  font-size: 6rem;
   font-weight: 700; }
+  #root .main-header-landing {
+    color: #1db954;
+    font-size: 6rem; }
+  #root .main-header-base {
+    color: white;
+    font-size: 3.6rem;
+    margin: 2.4rem 0;
+    letter-spacing: -0.005rem; }
 
 #root .secondary-header {
   color: white;
@@ -40,11 +46,17 @@ body {
 .u-padding-none {
   padding: 0 !important; }
 
+.u-margin-small {
+  margin: 2rem !important; }
+
+.u-margin-medium {
+  margin: 4rem; }
+
 .top-bar {
   background-color: transparent; }
 
 #root .top-container {
-  height: 85vh; }
+  height: 100%; }
   #root .top-container__browse-container {
     background-color: transparent;
     box-shadow: none;
@@ -53,6 +65,8 @@ body {
 
 #root .nav-container {
   padding: 2.4rem;
+  height: 100%;
+  width: 22rem;
   background-color: rgba(0, 0, 0, 0.5); }
   #root .nav-container__item {
     color: rgba(255, 255, 255, 0.6);
@@ -72,8 +86,16 @@ body {
   letter-spacing: 0.2rem;
   padding-bottom: 1rem; }
   #root .nav-item--active {
-    color: #1db954;
-    border-bottom: 1px solid #1db954; }
+    color: white; }
+    #root .nav-item--active::after {
+      content: "";
+      height: 2px;
+      background-color: #1db954;
+      width: 30px;
+      position: relative;
+      top: 4px;
+      display: block;
+      margin: 0 auto; }
 
 #root .btn {
   display: inline-block;
@@ -100,14 +122,35 @@ body {
   #root .btn--transparent:hover {
     transform: scale(1.1); }
 
-#root .album {
-  margin-right: 2rem;
-  margin-bottom: 5rem;
-  width: 20rem;
-  height: 20rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; }
+.album {
+  margin-bottom: 5rem; }
+  .album__cover-art {
+    position: relative;
+    width: 14rem;
+    height: 14rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s; }
+  .album--hoverable:hover > .album__cover-art {
+    filter: brightness(0.3); }
+  .album__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 6rem;
+    color: white;
+    font-weight: 100;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    transition: all 0.3s; }
+    .album__icon:hover {
+      top: 50%;
+      left: 50%;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.06); }
+  .album--hoverable:hover > .album__icon {
+    opacity: 1; }
 
 #root .landing-page {
   display: flex;
@@ -145,4 +188,4 @@ body {
 
 .home-container {
   background-image: linear-gradient(#304269, #04060a 85%);
-  height: 100vh; }
+  height: 100%; }

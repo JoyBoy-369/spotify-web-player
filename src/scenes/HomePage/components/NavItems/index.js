@@ -10,7 +10,6 @@ const NavItems = props => {
       activeClassName={activeStyle ? activeStyle : "nav-item--active"}
       className={style ? `row ${style}` : "nav-item"}
       isActive={activeState}
-      onlyActiveOnIndex
     >
       {props.children}
     </NavLink>

@@ -1,8 +1,38 @@
-#root .album {
-  margin-right: 2rem;
+.album {
   margin-bottom: 5rem;
-  @include size(20rem);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+  &__cover-art {
+    position: relative;
+    @include size(14rem);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+  }
+
+  &--hoverable:hover > &__cover-art {
+    filter: brightness(0.3);
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 6rem;
+    color: spotify-color("secondary");
+    font-weight: 100;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    transition: all 0.3s;
+
+    &:hover {
+      top: 50%;
+      left: 50%;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+  }
+  &--hoverable:hover > &__icon {
+    opacity: 1;
+  }
 }

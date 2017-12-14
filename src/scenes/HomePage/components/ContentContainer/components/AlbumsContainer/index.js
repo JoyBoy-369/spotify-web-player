@@ -20,11 +20,11 @@ class AlbumsContainer extends Component {
       { showAll } = this.state;
 
     let slicedMedias = [];
-    slicedMedias = albums.slice(0, 8);
+    slicedMedias = albums.slice(0, 12);
 
     return (
       <div className="ui grid">
-        <div className="doubling four column row">
+        <div className="doubling six column row">
           {slicedMedias.map(media => {
             return <Album key={media.id} album={media} />;
           })}

@@ -18,7 +18,6 @@ export default class Browse extends Component {
     return (
       <div className="ui center aligned segment top-container__browse-container">
         <TopBarWithRouter links={homeLinks} />
-        <h1 className="ui header">Listen To MEEE!!</h1>
         <Switch>
           <Route
             path={`${match.url}/featured`}

@@ -56,9 +56,9 @@ function parseAlbum(album) {
 
 function parsePlaylists(data) {
   let playlists = data.playlists.items.map(p => parsePlaylist(p));
-  let msg = { message: data.message };
 
-  let result = { playlists, msg };
+  let result = { playlists };
+  result.msg = data.message;
 
   return result;
 }

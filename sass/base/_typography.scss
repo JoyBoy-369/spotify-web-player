@@ -1,30 +1,38 @@
-body{
-    font-family:"Lato",sans-serif;
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  // color:$color-grey-dark;
+}
+
+#root .main-header {
+  font-weight: 700;
+
+  &-landing {
+    color: spotify-color("primary", "light");
+    font-size: 6rem;
+  }
+
+  &-base {
+    color: spotify-color("secondary");
+    font-size: 3.6rem;
+    margin: 2.4rem 0;
+    letter-spacing: -0.005rem;
+  }
+}
+
+#root .secondary-header {
+  color: spotify-color("secondary");
+  font-weight: 100;
+  line-height: 1.5;
+}
+#root .feature-list {
+  color: spotify-color("primary", "lighter");
+  font-size: 1.8rem;
+
+  &__text {
     font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    // color:$color-grey-dark;
-}
-
-#root .main-header{
-   color:spotify-color('primary','light');
-   font-size: 6rem;
-   font-weight: 700;
-}
-
-#root .secondary-header{
-   color:spotify-color('secondary');
-   font-weight: 100;
-   line-height: 1.5;
-}
-
-#root .feature-list{
-
-    color:spotify-color('primary','lighter');
-    font-size:1.8rem;
-
-    &__text{
-       font-weight: 400;
-       color:spotify-color('primary','lighter');
-    }
+    color: spotify-color("primary", "lighter");
+  }
 }

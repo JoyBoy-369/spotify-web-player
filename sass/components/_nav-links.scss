@@ -6,7 +6,16 @@
   padding-bottom: 1rem;
 
   &--active {
-    color: spotify-color("primary", "light");
-    border-bottom: 1px solid spotify-color("primary", "light");
+    color: spotify-color("secondary");
+    &::after {
+      content: "";
+      height: 2px;
+      background-color: spotify-color("primary", "light");
+      width: 30px;
+      position: relative;
+      top: 4px;
+      display: block;
+      margin: 0 auto;
+    }
   }
 }

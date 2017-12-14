@@ -10,13 +10,13 @@ navItems.set("collection", "Your Music");
 class Sidebar extends Component {
   render() {
     return (
-      <div className="ui three wide column padded grid nav-container">
-        <div className="row ">
+      <div className="ui vertical sidebar menu visible uncover nav-container">
+        <div className="item ">
           <SVGLoader width={30} height={30} />
         </div>
         {Array.from(navItems.entries()).map(([key, value]) => (
           <NavItems
-            style="nav-container__item"
+            style="item nav-container__item"
             activeStyle="nav-container__item--active"
             key={key}
             item={key}
