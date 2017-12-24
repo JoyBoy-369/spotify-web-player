@@ -16,9 +16,9 @@ class AlbumsContainer extends Component {
   };
 
   render() {
-    const { albums } = this.props,
+    const { albums, msg } = this.props,
       { showAll } = this.state;
-
+    console.log(this.props);
     let slicedMedias = [];
     slicedMedias = albums.slice(0, 12);
 
@@ -32,9 +32,9 @@ class AlbumsContainer extends Component {
         <Route
           render={({ history, match }) => (
             <div
-              className="centered two wide column btn btn--transparent u-padding-none"
+              className="centered two wide column btn btn--view-more u-padding-none"
               onClick={() => {
-                history.push(`/view${match.url}`, { albums });
+                history.push(`/view${match.url}`, { msg, albums });
               }}
             >
               View More

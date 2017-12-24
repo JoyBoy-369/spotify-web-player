@@ -23,6 +23,7 @@ class Service {
       case "featured":
         return this.getFeaturedPlaylists();
       case "genres":
+        return this.getGenresList();
         break;
       case "newreleases":
         break;

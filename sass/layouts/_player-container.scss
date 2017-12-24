@@ -1,0 +1,7 @@
+.player-container {
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+  background-color: black-shade("darkest");
+  border-top: 0.1rem solid spotify-color("foreground");
+}

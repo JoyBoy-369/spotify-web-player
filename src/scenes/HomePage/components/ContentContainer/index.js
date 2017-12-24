@@ -7,7 +7,7 @@ import View from "./components/View";
 export default class ContentContainer extends Component {
   render() {
     return (
-      <div className="thirteen wide right floated column top-container">
+      <div className="right floated row top-container">
         <Route path="/view" component={View} />
         <Route path="/browse" component={Browse} />
         <Route path="/search" component={Browse} />

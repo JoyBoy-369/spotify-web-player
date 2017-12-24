@@ -10,11 +10,13 @@
 @import "layouts/top-bar";
 @import "layouts/top-container";
 @import "layouts/nav-container";
+@import "layouts/player-container";
 
 @import "components/nav-links";
 @import "components/button";
 @import "components/search-box";
 @import "components/album";
+@import "components/player";
 
 @import "pages/landing-page";
 @import "pages/home-page";

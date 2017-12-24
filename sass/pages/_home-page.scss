@@ -1,7 +1,18 @@
 .home-container {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.bg {
   background-image: linear-gradient(
     spotify-color("background"),
     black-shade("dark") 85%
   );
-  height: 100%;
+  @include size(100%,100vh);
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+  position: fixed;
 }

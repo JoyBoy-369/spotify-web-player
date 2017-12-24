@@ -8,12 +8,16 @@ class Album extends Component {
     return (
       <div className="column album">
         <div className="album--hoverable">
-          <div
-            className="album__cover-art"
-            style={{ backgroundImage: `url(${album.imageUrl})` }}
-          />
-          <div className="album__icon icon-music-play-button" />
-          <span className="album__title">{album.name}</span>
+          <Link to="/user/spotify/playlist" className="cover-art">
+            <div>
+              <div
+                className="cover-art__image"
+                style={{ backgroundImage: `url(${album.imageUrl})` }}
+              />
+              <div className="album__icon icon-music-play-button" />
+            </div>
+          </Link>
+          <div className="album__title">{album.name}</div>
         </div>
       </div>
     );

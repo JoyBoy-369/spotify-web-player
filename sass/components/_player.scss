@@ -1,0 +1,21 @@
+.player {
+  height: 9rem;
+  align-items: center !important;
+  justify-content: space-between;
+  padding: 0 16px;
+
+  &__now-playing {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__cover-art {
+    flex-shrink: 0;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin-right: 14px !important;
+  }
+}

@@ -1,16 +1,7 @@
 .album {
-  margin-bottom: 5rem;
+  padding-bottom: 5rem;
 
-  &__cover-art {
-    position: relative;
-    @include size(14rem);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all 0.3s;
-  }
-
-  &--hoverable:hover > &__cover-art {
+  &--hoverable:hover .cover-art__image {
     filter: brightness(0.3);
   }
 
@@ -21,9 +12,10 @@
     font-size: 6rem;
     color: spotify-color("secondary");
     font-weight: 100;
-    transform: translate(-50%, -50%) scale(0.6);
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
     opacity: 0;
-    transition: all 0.3s;
+    transition: all 0.2s;
 
     &:hover {
       top: 50%;
@@ -31,8 +23,34 @@
       opacity: 1;
       transform: translate(-50%, -50%) scale(1.06);
     }
+
+    &::before {
+      display: block;
+    }
   }
-  &--hoverable:hover > &__icon {
+  &--hoverable:hover &__icon {
     opacity: 1;
   }
+}
+
+.album .cover-art {
+  padding-top: 100%;
+}
+
+.cover-art {
+  background-color: black-shade("darkest");
+  margin: 0;
+  display: block;
+  border: 0;
+  outline: 0;
+  position: relative;
+}
+
+.cover-art__image {
+  position: absolute;
+  top: 0;
+  @include size(100%);
+  background-size: cover;
+  background-position: 50%;
+  box-shadow: 0 0 1rem spotify-color("foreground", $opacity:"dark");
 }

@@ -28,11 +28,11 @@ export default class BrowseCategories extends Component {
     const { medias, msg } = this.state;
     console.log(medias);
     return (
-      <div>
+      <div className="u-content-spacing">
         <div className="row">
           <h1 className="main-header-base">{msg}</h1>
         </div>
-        <AlbumContainer albums={medias} />
+        <AlbumContainer albums={medias} msg={msg} />
       </div>
     );
   }
