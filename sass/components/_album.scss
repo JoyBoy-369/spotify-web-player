@@ -44,6 +44,10 @@
   border: 0;
   outline: 0;
   position: relative;
+
+  &:active {
+    transform: scale3d(0.97, 0.97, 1);
+  }
 }
 
 .cover-art__image {

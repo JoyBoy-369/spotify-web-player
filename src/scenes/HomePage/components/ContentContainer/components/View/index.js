@@ -9,7 +9,7 @@ class View extends Component {
     const { albums, msg } = location.state;
     return (
       <div className="ui grid u-content-spacing">
-        <div className="centered six wide column">
+        <div className="centered row">
           <h1 className="main-header-base">{msg}</h1>
         </div>
 

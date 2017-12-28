@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import PlayerControls from "../PlayerControls";
 
 class Player extends Component {
   render() {
@@ -18,8 +19,8 @@ class Player extends Component {
             <div>Saaah</div>
           </div>
         </div>
-        <div className="eight wide column">artis</div>
-        <div className="three wide column">artis</div>
+        <PlayerControls />
+        <div className="five wide column">artis</div>
       </div>
     );
   }

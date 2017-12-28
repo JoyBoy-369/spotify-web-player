@@ -18,4 +18,59 @@
     height: 56px;
     margin-right: 14px !important;
   }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-buttons {
+      margin-bottom: 12px;
+      display: flex;
+      width: 224px;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+    }
+  }
+}
+
+#root .control-button {
+  @include size(3.2rem);
+  background-color: transparent;
+  border: none;
+  color: spotify-color("secondary", $opacity:"lighter");
+  position: relative;
+  transition: all 0.3ms;
+
+  &__icon {
+    width: 100%;
+
+    &::before {
+      display: inline-block;
+      font-size: 1.6rem;
+      line-height: inherit;
+    }
+  }
+
+  &__circled {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 50rem;
+      border: 1px solid hsla(0, 0%, 100%, 0.6);
+    }
+  }
+
+  &:hover {
+    color: spotify-color("secondary");
+  }
+
+  &--hovered {
+    transform: scale(1.06);
+  }
 }
