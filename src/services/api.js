@@ -6,8 +6,19 @@ class Service {
   }
 
   getAlbums(albumIds) {
-    // See note about tokens above
     const url = "http://localhost:3001/api/albums?ids=" + albumIds.join(",");
+    return fetch(url, {
+      method: "get",
+      headers: {
+        accept: "application/json"
+      }
+    })
+      .then(this.parseJson)
+      .catch(err => console.log(err));
+  }
+
+  getTracksByUrl(playlistUrl) {
+    const url = `http://localhost:3001/api/tracks/${playlistUrl}`;
     return fetch(url, {
       method: "get",
       headers: {

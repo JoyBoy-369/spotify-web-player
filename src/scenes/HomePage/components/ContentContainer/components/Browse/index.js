@@ -21,7 +21,9 @@ export default class Browse extends Component {
         <Switch>
           <Route
             path={`${match.url}/featured`}
-            render={() => <BrowseCategories category="featured" />}
+            render={() => (
+              <BrowseCategories {...this.props} category="featured" />
+            )}
           />
           <Route
             path={`${match.url}/genres`}

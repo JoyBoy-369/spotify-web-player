@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Album extends Component {
+  clickHandle = evt => {
+    const { dispatch, media } = this.props;
+    evt.preventDefault();
+    dispatch({ type: "playlist/current", playlist: media });
+  };
   render() {
-    const { album } = this.props;
-    console.log(album);
+    const { media } = this.props;
+    console.log(media);
     return (
       <div className="column album">
         <div className="album--hoverable">
@@ -12,12 +17,15 @@ class Album extends Component {
             <div>
               <div
                 className="cover-art__image"
-                style={{ backgroundImage: `url(${album.imageUrl})` }}
+                style={{ backgroundImage: `url(${media.imageUrl})` }}
               />
-              <div className="album__icon icon-music-play-button" />
+              <div
+                className="album__icon icon-music-play-button"
+                onClick={this.clickHandle}
+              />
             </div>
           </Link>
-          <div className="album__title">{album.name}</div>
+          <div className="album__title">{media.name}</div>
         </div>
       </div>
     );

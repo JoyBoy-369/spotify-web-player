@@ -27,6 +27,20 @@ app.get("/api/albums", (req, res) => {
     );
 });
 
+app.get("/api/tracks/:id", (req, res) => {
+  const playListId = req.params.id;
+
+  SpotifyClient.getTracks(playListId)
+    .then(tracks => res.json(tracks))
+    .catch(error =>
+      res.status(500).json({
+        success: false,
+        message: "There was an error when interfacing with Spotify",
+        error: error
+      })
+    );
+});
+
 app.get("/api/featured/playlists", (req, res) => {
   SpotifyClient.getFeaturedPlaylists()
     .then(playlists => res.json(playlists))

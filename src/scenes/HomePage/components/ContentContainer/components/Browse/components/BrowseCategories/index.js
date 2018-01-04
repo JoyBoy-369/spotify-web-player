@@ -32,7 +32,7 @@ export default class BrowseCategories extends Component {
         <div className="row">
           <h1 className="main-header-base">{msg}</h1>
         </div>
-        <AlbumContainer albums={medias} msg={msg} />
+        <AlbumContainer albums={medias} msg={msg} {...this.props} />
       </div>
     );
   }

@@ -16,7 +16,7 @@ class AlbumsContainer extends Component {
   };
 
   render() {
-    const { albums, msg } = this.props,
+    const { albums, msg, dispatch } = this.props,
       { showAll } = this.state;
     console.log(this.props);
     let slicedMedias = [];
@@ -26,7 +26,7 @@ class AlbumsContainer extends Component {
       <div className="ui grid">
         <div className="doubling six column row">
           {slicedMedias.map(media => {
-            return <Album key={media.id} album={media} />;
+            return <Album key={media.id} media={media} dispatch={dispatch} />;
           })}
         </div>
         <Route

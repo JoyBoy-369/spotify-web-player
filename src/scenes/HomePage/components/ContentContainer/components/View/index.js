@@ -5,7 +5,7 @@ import Album from "../Album";
 
 class View extends Component {
   render() {
-    const { location } = this.props;
+    const { location, dispatch } = this.props;
     const { albums, msg } = location.state;
     return (
       <div className="ui grid u-content-spacing">
@@ -15,7 +15,7 @@ class View extends Component {
 
         <div className="doubling six column row">
           {albums.map(album => {
-            return <Album key={album.id} album={album} />;
+            return <Album key={album.id} album={album} dispatch={dispatch} />;
           })}
         </div>
       </div>

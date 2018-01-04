@@ -6,10 +6,19 @@ import View from "./components/View";
 
 export default class ContentContainer extends Component {
   render() {
+    const { dispatch } = this.props;
     return (
       <div className="right floated row top-container">
-        <Route path="/view" component={View} />
-        <Route path="/browse" component={Browse} />
+        <Route
+          path="/view"
+          render={props => <View {...props} dispatch={dispatch} />}
+        />
+        <Route
+          path="/browse"
+          render={props => {
+            return <Browse {...props} dispatch={dispatch} />;
+          }}
+        />
         <Route path="/search" component={Browse} />
         <Route path="/collection" component={Browse} />
         <Route exact path="/" render={() => <Redirect to="/browse" />} />

@@ -67,7 +67,8 @@ function parsePlaylist(playlist) {
   return {
     id: playlist.id,
     imageUrl: getFirstImageUrl(playlist.images),
-    name: playlist.name.replace(/\s\(.+\)$/, "")
+    name: playlist.name.replace(/\s\(.+\)$/, ""),
+    trackHref: playlist.tracks.href
   };
 }
 
@@ -145,6 +146,12 @@ const SpotifyClient = {
     return this._get(SPOTIFY_BASE_URI + "/browse/featured-playlists").then(
       data => parsePlaylists(data)
     );
+  },
+
+  getTracks(playListId) {
+    return this._get(
+      SPOTIFY_BASE_URI + "/users/spotify/playlists/" + playListId + "/tracks"
+    ).then(data => data.items.map(t => parseTrack(t.track)));
   },
 
   getArtist(artistId) {
