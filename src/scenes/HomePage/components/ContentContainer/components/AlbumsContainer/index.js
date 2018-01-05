@@ -6,7 +6,8 @@ import Album from "../Album";
 
 class AlbumsContainer extends Component {
   state = {
-    showAll: false
+    showAll: false,
+    currentId: undefined
   };
 
   clickHandle = evt => {
@@ -15,9 +16,15 @@ class AlbumsContainer extends Component {
     });
   };
 
+  clickMediaHandle = id => {
+    this.setState({
+      currentId: id
+    });
+  };
+
   render() {
     const { albums, msg, dispatch } = this.props,
-      { showAll } = this.state;
+      { showAll, currentId } = this.state;
     console.log(this.props);
     let slicedMedias = [];
     slicedMedias = albums.slice(0, 12);
@@ -26,7 +33,15 @@ class AlbumsContainer extends Component {
       <div className="ui grid">
         <div className="doubling six column row">
           {slicedMedias.map(media => {
-            return <Album key={media.id} media={media} dispatch={dispatch} />;
+            return (
+              <Album
+                key={media.id}
+                media={media}
+                dispatch={dispatch}
+                clickMediaHandle={this.clickMediaHandle}
+                currentId={currentId}
+              />
+            );
           })}
         </div>
         <Route

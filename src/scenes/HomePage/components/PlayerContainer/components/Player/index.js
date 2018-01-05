@@ -4,7 +4,7 @@ import PlayerControls from "../PlayerControls";
 
 class Player extends Component {
   render() {
-    const { album } = this.props;
+    const { album, shouldPlay } = this.props;
     return (
       <div className="ui grid player">
         <div className="five wide column player-left">
@@ -24,7 +24,10 @@ class Player extends Component {
             <div>{album ? album.name : ""}</div>
           </div>
         </div>
-        <PlayerControls />
+        <PlayerControls
+          clickHandle={this.props.clickHandle}
+          shouldPlay={shouldPlay}
+        />
         <div className="five wide column">artis</div>
       </div>
     );

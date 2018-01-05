@@ -2,13 +2,37 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Album extends Component {
+  state = {
+    play: false
+  };
+
+  getClassNames = () => {
+    const { currentId, media } = this.props;
+    const { play } = this.state;
+
+    if (media.id === currentId && play)
+      return "album__icon icon-music-pause-button";
+    else if (!play) return "album__icon icon-music-play-button";
+    else return "album__icon icon-music-play-button";
+  };
+
   clickHandle = evt => {
-    const { dispatch, media } = this.props;
+    const { dispatch, media, clickMediaHandle } = this.props;
+    const { play } = this.state;
+
     evt.preventDefault();
-    dispatch({ type: "playlist/current", playlist: media });
+    this.setState(prevState => ({
+      play: !prevState.play
+    }));
+    dispatch({
+      type: "playlist/current",
+      playlist: media,
+      play: !play
+    });
+    clickMediaHandle(media.id);
   };
   render() {
-    const { media } = this.props;
+    const { media, currentId } = this.props;
     console.log(media);
     return (
       <div className="column album">
@@ -20,7 +44,7 @@ class Album extends Component {
                 style={{ backgroundImage: `url(${media.imageUrl})` }}
               />
               <div
-                className="album__icon icon-music-play-button"
+                className={this.getClassNames()}
                 onClick={this.clickHandle}
               />
             </div>

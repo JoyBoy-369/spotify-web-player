@@ -3,25 +3,22 @@ import { Link } from "react-router-dom";
 
 import { IconButton } from "src/components";
 
-const buttonLabels = [
-  "shuffle",
-  "step backward",
-  "play",
-  "step forward",
-  "repeat"
-];
-
 class PlayerControls extends Component {
   render() {
+    const { clickHandle, shouldPlay } = this.props;
     return (
       <div className="six wide column ">
         <div className="player__controls">
           <div className="player__controls-buttons">
-            {buttonLabels.map(label => {
-              let style;
-              if (label === "play") style = "control-button__circled";
-              return <IconButton iconLabel={label} style={style} />;
-            })}
+            <IconButton iconLabel="shuffle" clickHandle={clickHandle} />
+            <IconButton iconLabel="step backward" clickHandle={clickHandle} />
+            <IconButton
+              iconLabel="play"
+              clickHandle={clickHandle}
+              shouldPlay={shouldPlay}
+            />
+            <IconButton iconLabel="step forward" clickHandle={clickHandle} />
+            <IconButton iconLabel="repeat" clickHandle={clickHandle} />
           </div>
           <div className="player__playback-bar">
             <div className="player__playback-bar-time">

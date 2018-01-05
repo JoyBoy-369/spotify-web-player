@@ -1,7 +1,7 @@
-export const album = (state = { playlist: {}, shouldUpdate: true }, action) => {
+export const album = (state = { playlist: {}, shouldPlay: false }, action) => {
   switch (action.type) {
     case "playlist/current":
-      return { playlist: action.playlist, shouldUpdate: false };
+      return { playlist: action.playlist, shouldPlay: action.play };
     default:
       return state;
   }

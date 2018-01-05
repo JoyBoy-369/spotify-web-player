@@ -15,7 +15,7 @@ class View extends Component {
 
         <div className="doubling six column row">
           {albums.map(album => {
-            return <Album key={album.id} album={album} dispatch={dispatch} />;
+            return <Album key={album.id} media={album} dispatch={dispatch} />;
           })}
         </div>
       </div>

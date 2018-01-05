@@ -12,14 +12,14 @@ class HomePage extends Component {
   };
 
   render() {
-    const { playlist, shouldUpdate } = this.state;
+    const { playlist, shouldPlay } = this.state;
     return (
       <Fragment>
         <div className="bg" />
         <div className="ui padded grid home-container ">
           <Sidebar {...this.props} />
           <ContentContainer dispatch={this.dispatch} {...this.props} />
-          <PlayerContainer playlist={playlist} />
+          <PlayerContainer playlist={playlist} shouldPlay={shouldPlay} />
         </div>
       </Fragment>
     );
