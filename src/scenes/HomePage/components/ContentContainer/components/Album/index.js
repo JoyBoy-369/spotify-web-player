@@ -1,58 +1,49 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+function setPlay(state,props) {
+  return { albumPlaying: !props.nowPlaying.shouldPlay };
+}
+
 class Album extends Component {
-  state = {
-    play: false
-  };
 
   getClassNames = () => {
-    const { currentId, media } = this.props;
-    const { play } = this.state;
+    const { media, nowPlaying } = this.props;
 
-    if (media.id === currentId && play)
+    if (
+      nowPlaying &&
+      media.id === nowPlaying.currentId &&
+      nowPlaying.shouldPlay
+    )
       return "album__icon icon-music-pause-button";
-    else if (!play) return "album__icon icon-music-play-button";
     else return "album__icon icon-music-play-button";
   };
 
   clickHandle = evt => {
-    const { dispatch, media, clickMediaHandle } = this.props;
-    const { play } = this.state;
-
+    const { dispatch, media, clickMediaHandle, nowPlaying } = this.props;
+  let status=true;
     evt.preventDefault();
-    this.setState(prevState => ({
-      play: !prevState.play
-    }));
-    dispatch({
-      type: "playlist/current",
-      playlist: media,
-      play: !play
-    });
-    clickMediaHandle(media.id);
+
+    if(media.id === nowPlaying.currentId)
+    status=!nowPlaying.shouldPlay;
+    
+    clickMediaHandle(media,status);
   };
+
   render() {
-    const { media, currentId } = this.props;
-    console.log(media);
-    return (
-      <div className="column album">
+    const { media, nowPlaying } = this.props;
+
+    return <div className="column album">
         <div className="album--hoverable">
           <Link to="/user/spotify/playlist" className="cover-art">
             <div>
-              <div
-                className="cover-art__image"
-                style={{ backgroundImage: `url(${media.imageUrl})` }}
-              />
-              <div
-                className={this.getClassNames()}
-                onClick={this.clickHandle}
-              />
+              <div className="cover-art__image" style={media.id === nowPlaying.currentId &&nowPlaying.shouldPlay ? { backgroundImage: `url(${media.imageUrl})`, filter: "brightness(0.3)" } : { backgroundImage: `url(${media.imageUrl})` }} />
+              <div className={this.getClassNames()} style={media.id === nowPlaying.currentId &&nowPlaying.shouldPlay ? { opacity: 1 } : null} onClick={this.clickHandle} />
             </div>
           </Link>
           <div className="album__title">{media.name}</div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 

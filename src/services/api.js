@@ -58,6 +58,14 @@ class Service {
       .catch(err => console.log(err));
   }
 
+  getAudioData(url) {
+    return fetch(url, {
+      method: "get"
+    })
+      .then(this.parseArrayBuffer)
+      .catch(err => console.log(err));
+  }
+
   checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
       return response;
@@ -72,6 +80,10 @@ class Service {
 
   parseJson(response) {
     return response.json();
+  }
+
+  parseArrayBuffer(response) {
+    return response.arrayBuffer();
   }
 }
 

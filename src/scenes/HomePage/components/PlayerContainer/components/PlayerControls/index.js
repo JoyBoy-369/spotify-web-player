@@ -13,7 +13,7 @@ class PlayerControls extends Component {
             <IconButton iconLabel="shuffle" clickHandle={clickHandle} />
             <IconButton iconLabel="step backward" clickHandle={clickHandle} />
             <IconButton
-              iconLabel="play"
+              iconLabel={shouldPlay ? "pause" : "play"}
               clickHandle={clickHandle}
               shouldPlay={shouldPlay}
             />

@@ -87,7 +87,7 @@ function parseTrack(track) {
     durationMs: track.durationMs,
     id: track.id,
     trackNumber: track.trackNumber,
-    previewUrl: track.previewUrl
+    previewUrl: track.preview_url
   };
 }
 
@@ -151,7 +151,11 @@ const SpotifyClient = {
   getTracks(playListId) {
     return this._get(
       SPOTIFY_BASE_URI + "/users/spotify/playlists/" + playListId + "/tracks"
-    ).then(data => data.items.map(t => parseTrack(t.track)));
+    ).then(data =>
+      data.items
+        .filter(t => t.preview_url !== null)
+        .map(t => parseTrack(t.track))
+    );
   },
 
   getArtist(artistId) {

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 
 import Player from "./components/Player";
 import { service as ClientApi } from "src/services";
+import { webPlayer as WebPlayer } from "src/services";
 
 class PlayerContainer extends Component {
   state = {
@@ -23,10 +24,18 @@ class PlayerContainer extends Component {
   }
 
   clickHandle = name => {
-    const { tracks } = this.state;
+    const { tracks, id } = this.state;
+    const { dispatch } = this.props;
+
     if (tracks.length <= 0) return;
     switch (name) {
       case "play":
+        WebPlayer.createBufferSource();
+        return WebPlayer.getDecodedData(tracks[id].previewUrl).then(
+          WebPlayer.start
+        );
+      case "pause":
+        WebPlayer.stop();
         break;
       case "step forward":
         this.setState(prevState => ({

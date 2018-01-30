@@ -19,8 +19,8 @@ export default class IconButton extends Component {
 
     if (iconLabel === "play" || iconLabel === "pause")
       return shouldPlay
-        ? `pause control-button__circled icon control-button__icon`
-        : `play control-button__circled icon control-button__icon`;
+        ? "pause control-button__circled icon control-button__icon"
+        : "play control-button__circled icon control-button__icon";
     else return `${iconLabel} icon control-button__icon`;
   };
 

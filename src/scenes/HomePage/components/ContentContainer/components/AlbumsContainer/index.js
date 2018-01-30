@@ -16,16 +16,24 @@ class AlbumsContainer extends Component {
     });
   };
 
-  clickMediaHandle = id => {
+  clickMediaHandle = (media, play) => {
+    const { dispatch } = this.props;
+
     this.setState({
-      currentId: id
+      currentId: media.id
+    });
+
+    dispatch({
+      type: "playlist/current",
+      playlist: media,
+      nowPlaying: { currentId: media.id, shouldPlay: play }
     });
   };
 
   render() {
-    const { albums, msg, dispatch } = this.props,
+    const { albums, msg, dispatch, nowPlaying } = this.props,
       { showAll, currentId } = this.state;
-    console.log(this.props);
+
     let slicedMedias = [];
     slicedMedias = albums.slice(0, 12);
 
@@ -38,8 +46,8 @@ class AlbumsContainer extends Component {
                 key={media.id}
                 media={media}
                 dispatch={dispatch}
+                nowPlaying={nowPlaying}
                 clickMediaHandle={this.clickMediaHandle}
-                currentId={currentId}
               />
             );
           })}
