@@ -5,16 +5,25 @@ class WebPlayer {
     this.AudioContext = window.AudioContext || window.webkitAudioContext;
     this.audioCtx = new this.AudioContext();
     this.gainNode = this.audioCtx.createGain();
-    this.previewUrl;
-    this.createBufferSource();
   }
 
-  createBufferSource = () => {
-    if (this.source) return;
+  play = previewUrl => {
+    //this.disconnect();
+    if (this.audioCtx.state === "suspended") return this.audioCtx.resume();
+    this._createBufferSource();
+    return this._getDecodedData(previewUrl).then(this._start);
+  };
+
+  _createBufferSource = () => {
     this.source = this.audioCtx.createBufferSource();
   };
 
-  getDecodedData = previewUrl => {
+  disconnect = () => {
+    if (!this.source) return;
+    return this.source.disconnect();
+  };
+
+  _getDecodedData = previewUrl => {
     return this._getData(previewUrl).then(this._decodeAudioData);
   };
 
@@ -29,12 +38,14 @@ class WebPlayer {
     });
   };
 
-  start = () => {
+  _start = () => {
+    if (!this.source) return;
     this.source.start(0);
   };
 
   stop = () => {
-    this.source.stop(0);
+    if (!this.source) return;
+    if (this.audioCtx.state === "running") return this.audioCtx.suspend();
   };
 }
 export const webPlayer = new WebPlayer();

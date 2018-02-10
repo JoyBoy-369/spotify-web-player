@@ -84,7 +84,7 @@ function parseTrack(track) {
   return {
     albumImage: track.album && getFirstImageUrl(track.album.images),
     name: track.name,
-    durationMs: track.durationMs,
+    durationMs: track.duration_ms,
     id: track.id,
     trackNumber: track.trackNumber,
     previewUrl: track.preview_url

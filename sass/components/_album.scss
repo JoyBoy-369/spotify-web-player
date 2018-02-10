@@ -47,6 +47,10 @@
 
   &:active {
     transform: scale3d(0.97, 0.97, 1);
+
+    & .cover-art__image {
+      box-shadow: none;
+    }
   }
 }
 

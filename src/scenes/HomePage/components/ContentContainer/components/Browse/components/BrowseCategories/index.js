@@ -8,11 +8,11 @@ import { Route } from "react-router-dom";
 export default class BrowseCategories extends Component {
   state = { medias: [], msg: "", fetched: false };
 
-  componentWillMount() {
-    console.log("hi", this.props);
+  componentDidMount() {
     const { category } = this.props;
     this.getPlaylists(category);
   }
+
   getPlaylists = category => {
     return ClientApi.getPlaylists(category).then(items => {
       console.log("items", items);

@@ -178,6 +178,8 @@ body {
   position: relative; }
   .cover-art:active {
     transform: scale3d(0.97, 0.97, 1); }
+    .cover-art:active .cover-art__image {
+      box-shadow: none; }
 
 .cover-art__image {
   position: absolute;
