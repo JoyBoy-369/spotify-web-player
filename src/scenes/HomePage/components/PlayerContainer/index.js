@@ -26,7 +26,7 @@ function playTrack(key, id, tracks) {
   else newId = id - 1;
 
   return Promise.resolve()
-    .then(WebPlayer.disconnect)
+    .then(_ => WebPlayer.disconnect())
     .then(_ => WebPlayer.play(tracks[newId].previewUrl));
 }
 
@@ -48,6 +48,8 @@ class PlayerContainer extends Component {
     if (nextProps.playlist.id === this.props.playlist.id) {
       if (!nextProps.shouldPlay) {
         return WebPlayer.stop();
+      } else {
+        return WebPlayer.play();
       }
     }
 
@@ -55,11 +57,12 @@ class PlayerContainer extends Component {
     const filteredTracks = result.filter(track => track.previewUrl);
 
     this.setState({ fetched: true, tracks: [...filteredTracks] });
-
-    return Promise.resolve()
-      .then(_ => WebPlayer.disconnect())
-      .then(_ => WebPlayer.play(filteredTracks[id].previewUrl))
-      .catch(err => console.log(err));
+    if (nextProps.shouldPlay) {
+      return Promise.resolve()
+        .then(_ => WebPlayer.disconnect())
+        .then(_ => WebPlayer.play(filteredTracks[id].previewUrl))
+        .catch(err => console.log(err));
+    }
   }
 
   componentWillUnmount() {
@@ -70,7 +73,6 @@ class PlayerContainer extends Component {
   songProgress = () => {
     const { elapsedTime, endTime, tracks, id } = this.state;
 
-    console.log("hello", elapsedTime, endTime, tracks);
     if (elapsedTime === endTime) {
       playTrack("forward", id, tracks);
       clearInterval(this.timer);
@@ -123,15 +125,13 @@ class PlayerContainer extends Component {
         });
         break;
 
-      case "step forward": {
+      case "step forward":
         this.setState(incrementTrackIndex);
-        playTrack("forward", id, tracks).catch(err => console.log(err));
-        break;
-      }
+        return playTrack("forward", id, tracks).catch(err => console.log(err));
+
       case "step backward":
         this.setState(decrementTrackIndex);
-        playTrack("backward", id, tracks).catch(err => console.log(err));
-        break;
+        return playTrack("backward", id, tracks).catch(err => console.log(err));
 
       case "repeat":
         break;
